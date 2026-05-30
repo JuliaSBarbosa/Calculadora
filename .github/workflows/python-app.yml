@@ -25,3 +25,12 @@ jobs:
       - name: Run tests
         run: |
           python -m unittest test_calculadora.py
+
+      - name: Package project
+        run: zip -r calculadora.zip .
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: calculadora-artifact
+          path: calculadora.zip
